@@ -94,3 +94,8 @@ tasks.register('updateAccessWidener', Copy) {
     from(accessWidenerFile)
     into(file("build/tmp/" + this.project.minecraft_version))
 }
+
+
+tasks.withType(JavaCompile).configureEach {
+    dependsOn(updateAccessWidener)
+}
